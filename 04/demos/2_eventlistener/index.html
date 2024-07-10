@@ -168,12 +168,18 @@
 
 
         let btn = document.querySelector("button");
-        btn.onclick = function() { addToCart(); };
+        btn.addEventListener(
+            "click",
+            addToCart,
+            {once: true});
 
         function addToCart() {
             let spanTickets = document.getElementById("spanTickets");
             let count = parseInt(spanTickets.textContent) ?? 0;
             spanTickets.textContent = count + 1;
+
+            // to remove the event listener:
+            //btn.removeEventListener("click", addToCart);
         }
     </script>
   </body>
