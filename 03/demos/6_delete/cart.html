@@ -36,7 +36,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container" id="eventtable">
+        <div class="container" id="carttable">
             <div class="container">
                 <table class="table mt-5">
                     <thead>
@@ -163,6 +163,12 @@
     <script>
         document.querySelector("footer div").childNodes[1].textContent = 
             new Date().getFullYear();
+            function removeFromCart(idx) {
+                let items = document.querySelectorAll("#carttable table tbody tr");
+                    if(idx < items.length) {
+                        items[idx].remove();
+                    }
+            }
     </script>
   </body>
 </html>

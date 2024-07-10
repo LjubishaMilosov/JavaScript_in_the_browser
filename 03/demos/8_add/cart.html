@@ -161,8 +161,26 @@
         </footer>
     </div>
     <script>
-        document.querySelector("footer div").childNodes[1].textContent = 
+
+        let placeholder = document.querySelector("footer div");
+
+        placeholder.childNodes[1].textContent = 
             new Date().getFullYear();
+
+
+            placeholder.lastChild.remove();
+
+            let blank = document.createTextNode(" ");
+            placeholder.appendChild(blank);
+
+            let a = document.createElement("a");
+            a.setAttribute("href", "./index.html");
+
+            let a_text = document.createTextNode("Globoticket");
+
+            a.appendChild(a_text);
+            placeholder.appendChild(a);
+
 
         function removeFromCart(idx) {
             let items = document.querySelectorAll("#carttable table tbody tr");
