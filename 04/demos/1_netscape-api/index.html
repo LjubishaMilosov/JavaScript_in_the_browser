@@ -165,6 +165,17 @@
             new Date().getFullYear();
         document.querySelector("footer div").classList.remove("font-xxlarge");
         document.querySelector("footer div").classList.add("font-large");
+
+
+        let btn = document.querySelector("button");
+            btn.onclick = function() { addToCart(); };
+
+            function addToCart() {
+                let spanTickets = document.getElementById("spanTickets");
+                let count = parseInt(spanTickets.textContent) ?? 0;
+                spanTickets.textContent = count + 1;
+            }
+        
     </script>
   </body>
 </html>
