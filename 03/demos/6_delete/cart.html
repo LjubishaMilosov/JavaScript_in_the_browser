@@ -45,7 +45,7 @@
                             <th scope="col">Date</th>
                             <th scope="col">Name</th>
                             <th scope="col">Artist</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -64,10 +64,10 @@
                                 Container Enthusiasm
                             </td>
                             <td class="max-50">
-                                $49.99
+                                1
                             </td>
                             <td class="max-50">
-                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
+                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper"><span class="bi bi-cart-x-fill text-white font-large"></span></button>
                             </td>
                         </tr>               
                         <tr class="align-middle">
@@ -84,10 +84,10 @@
                                 Digital Cowboys
                             </td>
                             <td class="max-50">
-                                $59.99
+                                2
                             </td>
                             <td class="max-50">
-                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
+                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper"><span class="bi bi-cart-x-fill text-white font-large"></span></button>
                             </td>
                         </tr>               
                         <tr class="align-middle">
@@ -104,10 +104,10 @@
                                 Git Outta My Hub
                             </td>
                             <td class="max-50">
-                                $39.99
+                                3
                             </td>
                             <td class="max-50">
-                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
+                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper"><span class="bi bi-cart-x-fill text-white font-large"></span></button>
                             </td>
                         </tr>               
                         <tr class="align-middle">
@@ -124,10 +124,10 @@
                                 Memory Allocation
                             </td>
                             <td class="max-50">
-                                $29.99
+                                4
                             </td>
                             <td class="max-50">
-                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
+                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper"><span class="bi bi-cart-x-fill text-white font-large"></span></button>
                             </td>
                         </tr>               
                         <tr class="align-middle">
@@ -144,10 +144,10 @@
                                 Network Firewall Squad
                             </td>
                             <td class="max-50">
-                                $69.99
+                                5
                             </td>
                             <td class="max-50">
-                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
+                                <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper"><span class="bi bi-cart-x-fill text-white font-large"></span></button>
                             </td>
                         </tr>               
                     </tbody>
@@ -161,8 +161,8 @@
         </footer>
     </div>
     <script>
-        document.getElementById("copyright-year").innerHTML = new Date().getFullYear;
+        document.querySelector("footer div").childNodes[1].textContent = 
+            new Date().getFullYear();
     </script>
   </body>
 </html>
-//document.querySelector("#copyright-year").textContent = new Date().getFullYear;
