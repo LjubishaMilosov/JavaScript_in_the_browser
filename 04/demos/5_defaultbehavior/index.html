@@ -172,12 +172,28 @@
             "click",
             addToCart,
             { once: true });
+
+            function getCartItemCount() {
+                let spanTickets = document.getElementById("spanTickets");
+                return parseInt(spanTickets.textContent) ?? 0;
+            }
         
         function addToCart() {
-            let spanTickets = document.getElementById("spanTickets");
-            let count = parseInt(spanTickets.textContent) ?? 0;
+            let count = getCartItemCount();
             spanTickets.textContent = count + 1;
         }
+
+        document.querySelector("a[href='./cart.html']").addEventListener(
+            "click",
+            (e) => {
+                let count = getCartItemCount();
+                if(count === 0) {
+                    alert("Cart is empty!");
+                    e.preventDefault();
+                }
+            }
+        )
+
     </script>
   </body>
 </html>
