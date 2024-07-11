@@ -161,10 +161,23 @@
         </footer>
     </div>
     <script>
+        [...document.getElementsByTagName("button")].forEach(
+            button => button.addEventListener("click", removeItemFromCart)
+        );
+
+        function removeItemFromCart(e) {
+            let row = e.taget.parentNode.parentNode;
+            if(row.tagName !== "TR") {
+                row = row.parentNode;
+            }
+            let idx = row.getAttribute("data-idx");
+            removeFromCart(idx);
+        }
+
         function removeFromCart(idx) {
-            let items = document.querySelectorAll("#carttable table tbody tr");
-            if (idx < items.length) {
-                items[idx].remove();
+            let items = document.querySelector(`#carttable table tbody tr[data-idx='${idx}']`);
+            if (item) {
+                item.remove();
             }
         }
     </script>
