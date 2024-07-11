@@ -43,6 +43,15 @@
                 }
             }
         );
+        let btnCart = document.querySelector("span[class~='bi-cart-plus-fill']");
+        btnCart.addEventListener(
+            "mouseenter",
+            (e) => e.target.classList.add("cart-highlight")
+        );
+        btnCart.addEventListener(
+            "mouseenter",
+            (e) => e.target.classList.remove("cart-highlight")
+        );
     });
     </script>
   </head>
