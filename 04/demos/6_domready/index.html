@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Globoticket</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelector("footer div").childNodes[1].textContent = 
+            new Date().getFullYear();
+        document.querySelector("footer div").classList.remove("font-xxlarge");
+        document.querySelector("footer div").classList.add("font-large");
+
+
+        let btn = document.querySelector("button");
+        btn.addEventListener(
+            "click",
+            addToCart,
+            { once: true });
+
+        function getCartItemCount() {
+            let spanTickets = document.getElementById("spanTickets");
+            return parseInt(spanTickets.textContent) ?? 0;
+        }
+        
+        function addToCart() {
+            let count = getCartItemCount();
+            spanTickets.textContent = count + 1;
+        }
+
+        document.querySelector("a[href='./cart.html']").addEventListener(
+            "click",
+            (e) => {
+                let count = getCartItemCount();
+                if (count === 0) {
+                    alert("Cart is empty!");
+                    e.preventDefault();
+                }
+            }
+        )
+    });
+    </script>
   </head>
   <body>
     <div id="root">
@@ -160,40 +197,5 @@
             </div>
         </footer>
     </div>
-    <script>
-        document.querySelector("footer div").childNodes[1].textContent = 
-            new Date().getFullYear();
-        document.querySelector("footer div").classList.remove("font-xxlarge");
-        document.querySelector("footer div").classList.add("font-large");
-
-
-        let btn = document.querySelector("button");
-        btn.addEventListener(
-            "click",
-            addToCart,
-            { once: true });
-
-        function getCartItemCount() {
-            let spanTickets = document.getElementById("spanTickets");
-            return parseInt(spanTickets.textContent) ?? 0;
-        }
-        
-        function addToCart() {
-            let count = getCartItemCount();
-            spanTickets.textContent = count + 1;
-        }
-
-        document.querySelector("a[href='./cart.html']").addEventListener(
-            "click",
-            (e) => {
-                let count = getCartItemCount();
-                if (count === 0) {
-                    alert("Cart is empty!");
-                    e.preventDefault();
-                }
-            }
-        )
-
-    </script>
   </body>
 </html>
