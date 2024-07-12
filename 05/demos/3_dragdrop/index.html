@@ -20,8 +20,7 @@
         let btn = document.querySelector("button");
         btn.addEventListener(
             "click",
-            addToCart,
-            { once: true });
+            addToCart);
 
         function getCartItemCount() {
             let spanTickets = document.getElementById("spanTickets");
@@ -31,7 +30,27 @@
         function addToCart() {
             let count = getCartItemCount();
             spanTickets.textContent = count + 1;
+            undoCount++;
         }
+        function removeFromCart () {
+            let count = getCartItemCount();
+            spanTickets.textContent = Math.max(count -1, 0);
+        }
+
+        let undoCount = 0;
+
+        document.addEventListener(
+            "keyup",
+            (e) => {
+                if (e.key === "z" && e.ctrlKey) {
+                    e.preventDefault();
+                    if (undoCount > 0) {
+                        undoCount--;
+                        removeFromCart();
+                    }
+                }
+            }
+        )
 
         document.querySelectorAll("#eventtable table tbody tr").forEach(
             (row) => row.addEventListener(
