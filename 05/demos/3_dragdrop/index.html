@@ -33,7 +33,15 @@
             spanTickets.textContent = count + 1;
         }
 
-        document.querySelector("a[href='./cart.html']").addEventListener(
+        document.querySelectorAll("#eventtable table tbody tr").forEach(
+            (row) => row.addEventListener(
+                "dragstart",
+                (e) => e.dataTransfer.setData("text/plain", e.target.innerText)
+            )
+        );
+
+        let cart = document.querySelector("a[href='./cart.html']");
+        cart.addEventListener(
             "click",
             (e) => {
                 let count = getCartItemCount();
@@ -44,15 +52,33 @@
             }
         );
 
-        let btnCart = document.querySelector("span[class~='bi-cart-plus-fill']");
-        btnCart.addEventListener(
+            cart.addEventListener(
+                "dragenter",
+                (e) => e.preventDefault()
+            );
+
+            cart.addEventListener(
+                "drop",
+                (e) => {
+                    e.preventDefault();
+                    console.log(e.dataTransfer.setData("text/plain"));
+                    addToCart();
+                }
+            )
+
+            cart.addEventListener(
+                "dragover",
+                (e) => e.preventDefault()
+            );
+       
+        cart.addEventListener(
             "mouseenter",
             (e) => { 
                 e.target.classList.add("cart-highlight");
                 e.target.addEventListener("mousemove", showXY);
             }
         );
-        btnCart.addEventListener(
+        cart.addEventListener(
             "mouseleave",
             (e) => {
                 e.target.classList.remove("cart-highlight");
@@ -104,7 +130,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="align-middle">
+                        <tr class="align-middle" draggable="true">
                             <td>
                                 <img class="img-fluid max-100" src="img/logos/Container-Enthusiasm-TalkDocker-To-Me.png" alt="Cover" />
                             </td>
@@ -124,7 +150,7 @@
                                 <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
                             </td>
                         </tr>               
-                        <tr class="align-middle">
+                        <tr class="align-middle" draggable="true">
                             <td>
                                 <img class="img-fluid max-100" src="img/logos/DigitalCowboys_BinaryBovine.png" alt="Cover" />
                             </td>
@@ -144,7 +170,7 @@
                                 <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
                             </td>
                         </tr>               
-                        <tr class="align-middle">
+                        <tr class="align-middle" draggable="true">
                             <td>
                                 <img class="img-fluid max-100" src="img/logos/GitOuttaMyHub-CodeEmpire.png" alt="Cover" />
                             </td>
@@ -164,7 +190,7 @@
                                 <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
                             </td>
                         </tr>               
-                        <tr class="align-middle">
+                        <tr class="align-middle" draggable="true">
                             <td>
                                 <img class="img-fluid max-100" src="img/logos/Memory-Allocation-The-Cache.png" alt="Cover" />
                             </td>
@@ -184,7 +210,7 @@
                                 <button type="button" class="btn btn-primary btn-primary-themed btn-md font-upper">Add to Cart</button>
                             </td>
                         </tr>               
-                        <tr class="align-middle">
+                        <tr class="align-middle" draggable="true">
                             <td>
                                 <img class="img-fluid max-100" src="img/logos/Network-Firewall-Squad---For-Those-About-to-Block,-We-Salute-You.png" alt="Cover" />
                             </td>
